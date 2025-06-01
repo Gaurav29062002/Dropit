@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DropIt File Upload</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0; padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      justify-content: center;
+    }
+
+    .upload-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      background-color: #0066ff;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      user-select: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    label:hover {
+      background-color: #004ecb;
+    }
+
+    button {
+      background-color: #28a745;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+    button:disabled {
+      background-color: #a1d7a1;
+      cursor: not-allowed;
+    }
+    button:hover:not(:disabled) {
+      background-color: #218838;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+      height: 15px;
+      display: none;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background-color: #007bff;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #555;
+      word-break: break-word;
+    }
+
+    .status a {
+      color: #0066ff;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .status a:hover {
+      text-decoration: underline;
+    }
+
+    .qr-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="upload-container">
+    <h1>DropIt - Upload File</h1>
+
+    <input type="file" id="fileInput" />
+    <label for="fileInput" id="fileLabel">Choose a file</label>
+
+    <button id="uploadBtn" disabled>Upload</button>
+
+    <div class="progress-bar" id="progressBar">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+
+    <div class="status" id="status"></div>
+    <div class="qr-container">
+      <canvas id="qrCanvas"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
