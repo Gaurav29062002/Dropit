@@ -1,7 +1,7 @@
 # Use official Node.js runtime
 FROM node:18-alpine
 
-# Set working directory inside the container
+# Set working directory inside container
 WORKDIR /app
 
 # Copy package.json and package-lock.json first
