@@ -6,15 +6,7 @@ services:
       context: ./backend
     ports:
       - "4000:4000"
-    environment:
-      - PORT=4000
-      - CLOUDINARY_CLOUD_NAME=dktxdlymi
-      - CLOUDINARY_API_KEY=122891592276897
-      - CLOUDINARY_API_SECRET=KieakKvjhVvWUjmkxheaM8lt3xA
-    volumes:
-      - ./backend:/app
-    restart: unless-stopped
-
+  
   frontend:
     build:
       context: ./frontend
@@ -22,4 +14,3 @@ services:
       - "80:80"
     depends_on:
       - backend
-    restart: unless-stopped
